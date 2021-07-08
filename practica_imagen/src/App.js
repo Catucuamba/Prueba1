@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import practia1 from './datos/practica1.json';
 import Elementos from './componentes/elementos';
+import MyForm2 from './componentes/MyForm2';
 
 class App extends React.Component{
 
@@ -11,7 +12,8 @@ class App extends React.Component{
 
   render(){
     return<div>
-        <Elementos practica1={this.state.practica1}  />
+      <MyForm2 />
+      <Elementos practica1={this.state.practica1}  />
     </div>
   }
 }
