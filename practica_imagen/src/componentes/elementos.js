@@ -5,7 +5,11 @@ import Elemento from './elemento';
 class Elementos extends React.Component{
 
     render(){
-        return this.props.practica1.map((s)=><Elemento elem = {s} key={s.id} />)
+        //console.log(this.props)
+        return this.props.practica1.map((s)=><Elemento 
+        key={s.id} 
+        elem = {s} 
+        eliminarElementoPractica1 = {this.props.eliminarElementoPractica1} />)
     }
 }
 

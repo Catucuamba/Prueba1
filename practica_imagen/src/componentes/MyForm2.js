@@ -9,11 +9,11 @@ class MyForm2 extends React.Component{
 
     myOnSubmit=(evn)=>{
         evn.preventDefault();
-        console.log(this.state);
+        this.props.añadirElementoPractica1(this.state.color, this.state.nombre);
     }
 
     myOnChange=(env)=>{
-        console.log("myOnChange", env.target.value, " name: ", env.target.name)
+  //console.log("myOnChange", env.target.value, " name: ", env.target.name)
         this.setState({
             [env.target.name]:env.target.value
         })
