@@ -10,18 +10,15 @@ class MiForm extends React.Component{
 
     myOnSubmit=(evn)=>{
         evn.preventDefault();
-        console.log("Enviar",this.state.color,"  -  ", this.state.nombre);
         this.props.añadirConfiguracion(this.state.color, this.state.nombre);
     }
 
     myOnChange=(env)=>{
-        console.log([env.target.name]," - ", env.target.value)
         this.setState({
             [env.target.name]:env.target.value
         })
     }
     render(){
-        console.log(this.props);
         return (
             <form onSubmit={this.myOnSubmit} >
                 <input name="color"
