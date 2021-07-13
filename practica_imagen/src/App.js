@@ -23,7 +23,17 @@ class App extends React.Component{
   }
 
   eliminarElementoPractica1=(id)=>{
-    console.log("Metodo eliminar elemento Practica1")
+    
+    const newState = this.state.practica1.reduce((newArr,obj) =>{
+      if(obj.id !== id){
+        return newArr.concat(obj);
+      }
+      return newArr
+    },[]);
+    
+    this.setState({
+      practica1: newState
+    })
   }
 
   render(){
