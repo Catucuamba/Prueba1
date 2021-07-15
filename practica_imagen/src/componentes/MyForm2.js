@@ -3,40 +3,57 @@ import React from 'react';
 class MyForm2 extends React.Component{
 
     state={
-        color:'',
-        nombre:''
+        nombre:'',
+        apellido:'',
+        edad:0
     }
 
     myOnSubmit=(evn)=>{
         evn.preventDefault();
-        this.props.añadirElementoPractica1(this.state.color, this.state.nombre);
+        this.props.añadirPersona(this.state.nombre, this.state.apellido, this.state.edad);
     }
 
     myOnChange=(env)=>{
-  //console.log("myOnChange", env.target.value, " name: ", env.target.name)
         this.setState({
             [env.target.name]:env.target.value
         })
     }
 
+    guardarArchivo = () => {
+        this.props.guardarArchivo()
+    }
+
     render(){
         return(
-            <form onSubmit={this.myOnSubmit} >
-                <input name="color"
-                    type="text" 
-                    placeholder="Ingrese el color" 
-                    onChange={this.myOnChange} 
-                    value={this.state.color} />
-                <br />
-                <br />
-                <input name="nombre"
-                    type="text" 
-                    placeholder="Ingrese el nombre de la imagen" 
-                    onChange={this.myOnChange} 
-                    value={this.state.nombre}/>
-                <br /><br />
-                <input type="submit" />
-            </form>
+            <div align = "center">
+                <form onSubmit={this.myOnSubmit} >
+                    <input name="nombre"
+                        type="text" 
+                        placeholder="Nombre" 
+                        onChange={this.myOnChange} 
+                        value={this.state.nombre}
+                    />
+                    <br />
+                    <br />
+                    <input name="apellido"
+                        type="text" 
+                        placeholder="Apellido" 
+                        onChange={this.myOnChange} 
+                        value={this.state.apellido}
+                    />
+                    <br />
+                    <br />
+                    <input name="edad"
+                        type="text" 
+                        placeholder="Edad" 
+                        onChange={this.myOnChange} 
+                        value={this.state.edad}
+                    />
+                    <br />
+                    <br />
+                    <input type="submit" value="Enviar"/>
+                </form>
+            </div>
         )
     }
 }

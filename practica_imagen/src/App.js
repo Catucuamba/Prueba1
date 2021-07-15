@@ -1,30 +1,30 @@
 import React from 'react';
 import './App.css';
-import practica1 from './datos/practica1.json';
+import personas from './datos/personas.json';
 import Elementos from './componentes/elementos';
 import MyForm2 from './componentes/MyForm2';
 
 class App extends React.Component{
 
   state ={
-    practica1:practica1
+    personas:personas
   }
 
-  añadirElementoPractica1=( colorIn, nombreIn )=>{
-    const newElement  = {
-      id : this.state.practica1.slice(-1)[0].id+1,
-      color:{"backgroundColor":colorIn},
-      nombre:nombreIn,
-      flag:true
+  añadirPersona=( nombre, apellido,edad )=>{
+    const newPersona  = {
+      id : this.state.personas.slice(-1)[0].id+1,
+      nombre: nombre,
+      apellido:apellido,
+      edad:edad
     }
     this.setState({
-      practica1: [...this.state.practica1, newElement]//this.state.practica1.push(newElement)
+      personas: [...this.state.personas, newPersona]//this.state.practica1.push(newElement)
     })
   }
 
-  eliminarElementoPractica1=(id)=>{
+  eliminarPersona=(id)=>{
     
-    const newState = this.state.practica1.reduce((newArr,obj) =>{
+    const newState = this.state.personas.reduce((newArr,obj) =>{
       if(obj.id !== id){
         return newArr.concat(obj);
       }
@@ -32,14 +32,16 @@ class App extends React.Component{
     },[]);
     
     this.setState({
-      practica1: newState
+      personas: newState
     })
   }
 
+
   render(){
     return<div>
-      <MyForm2 añadirElementoPractica1={this.añadirElementoPractica1} />
-      <Elementos practica1={this.state.practica1} eliminarElementoPractica1={this.eliminarElementoPractica1} />
+      <MyForm2 añadirPersona={this.añadirPersona} />
+      <br />
+      <Elementos personas={this.state.personas} eliminarPersona={this.eliminarPersona}   />
     </div>
   }
 }
